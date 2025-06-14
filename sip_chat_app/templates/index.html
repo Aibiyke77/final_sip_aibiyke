@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <title>SIP чат</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.1/socket.io.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h2>SIP чат</h2>
+
+    <label>Your name:<br />
+        <input type="text" id="username" />
+    </label><br /><br />
+
+    <label>To someone:<br />
+        <input type="text" id="to_user" />
+    </label><br /><br />
+
+    <button onclick="sendInvite()">Send an INVITE</button><br /><br />
+
+    <textarea id="message" placeholder="Введите сообщение" rows="3" cols="40"></textarea><br />
+    <button onclick="sendMessage()">Send a MESSAGE</button>
+
+    <hr />
+
+    <button onclick="startCall()">📞  Start a call</button>
+    <button onclick="acceptCall()">✅ Answer the call</button><br /><br />
+
+    <audio id="remoteAudio" autoplay></audio>
+
+    <div id="chat" style="white-space: pre-wrap; border:1px solid #ccc; padding:10px; height:300px; overflow-y:scroll;"></div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
